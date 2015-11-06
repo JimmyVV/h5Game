@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.1
+4 verbose readDependencies loading dependencies from c:\Users\lenovo\Desktop\H5-app\h5\package.json
+5 error install Couldn't read dependencies
+6 verbose stack Error: Failed to parse json
+6 verbose stack Trailing comma in object at 18:5
+6 verbose stack     },
+6 verbose stack     ^
+6 verbose stack     at parseError (c:\Program Files (x86)\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:379:11)
+6 verbose stack     at parseJson (c:\Program Files (x86)\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:68:23)
+6 verbose stack     at c:\Program Files (x86)\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:48:5
+6 verbose stack     at c:\Program Files (x86)\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:76:16
+6 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
+7 verbose cwd c:\Users\lenovo\Desktop\H5-app\h5
+8 error Windows_NT 6.3.9600
+9 error argv "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+10 error node v4.1.1
+11 error npm  v2.14.4
+12 error file c:\Users\lenovo\Desktop\H5-app\h5\package.json
+13 error code EJSONPARSE
+14 error Failed to parse json
+14 error Trailing comma in object at 18:5
+14 error     },
+14 error     ^
+15 error File: c:\Users\lenovo\Desktop\H5-app\h5\package.json
+16 error Failed to parse package.json data.
+16 error package.json must be actual JSON, not just JavaScript.
+16 error
+16 error This is not a bug in npm.
+16 error Tell the package author to fix their package.json file. JSON.parse
+17 verbose exit [ 1, true ]
