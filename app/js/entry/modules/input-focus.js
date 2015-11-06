@@ -1,15 +1,22 @@
-define(['jquery'], function() {
+define(['jquery'], function($) {
     function InputFocus(input, info) {
         this.input = input;
         this.input.on({
             focus: function() {
+                if (window.jQuery) {
+                    lib = 'jQuery';
+                }
+                if (window.Zepto) {
+                    lib = 'Zepto';
+                }
+                console.dir(window.Zepto);
                 if (sameContent(this, info)) {
-                    $(this).val('');                    
+                    $(this).val('');
                 }
             },
             blur: function() {
                 if (isNull(this)) {
-                    $(this).val(info);                    
+                    $(this).val(info);
                 }
             }
         })
@@ -27,7 +34,7 @@ define(['jquery'], function() {
         else return false;
     }
     $.fn.extend({
-        inputFocus:function(info) {        	
+        inputFocus: function(info) {
             return this.each(function() {
 
                 new InputFocus($(this), info);

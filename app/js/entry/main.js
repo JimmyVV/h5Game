@@ -2,26 +2,35 @@ require.config({　　
     baseUrl: "js/lib",
     paths: {　　　　　　
         "jquery": "jquery.min", //都不加后缀.js
-        // 'zepto': 'zepto',
+        'zepto': 'zepto',
+         'zepto-custom': 'zepto-custom',
         'los': "localStorage", //加载localStorage文件,使数据存储在本地
         "underscore": "underscore.min",
         "backbone": "backbone",
         'focus': "../entry/modules/input-focus"　　　
+    },
+     map: {
+        '*': {
+            'zepto': 'zepto-custom'
+        },
+        'zepto-custom': {
+            'zepto': 'zepto'
+        }
     },
      shim:{
         'underscore' : {
             exports : '_'
         },
         'backbone' : {
-            deps : ['underscore','jquery']
+            deps : ['underscore','zepto']
             , exports : 'Backbone'
         },
-        'jquery': { 
+        'zepto': { 
             exports: '$'
         }
     }
 });
-require(['underscore','jquery', 'backbone','focus'], function(_,$,Backbone) {　　　
+require(['underscore','zepto', 'backbone','focus'], function(_,$,Backbone) {　　　
      var textWidth = function(text){ 
         var sensor = $('<pre>'+ text +'</pre>').css({display: 'none'});   //因为pre标签,可以保留空格和换行符,
         $('body').append(sensor); 
@@ -29,7 +38,7 @@ require(['underscore','jquery', 'backbone','focus'], function(_,$,Backbone) {　
         sensor.remove(); 
         return width;
     };
-
+ 
     var Self = Backbone.Model.extend({
         default: {
             name: '',
