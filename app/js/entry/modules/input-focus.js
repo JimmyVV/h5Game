@@ -8,8 +8,7 @@ define(['jquery'], function($) {
                 }
                 if (window.Zepto) {
                     lib = 'Zepto';
-                }
-                console.dir(window.Zepto);
+                }                
                 if (sameContent(this, info)) {
                     $(this).val('');
                 }

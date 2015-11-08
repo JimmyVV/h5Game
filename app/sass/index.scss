@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -5,13 +7,20 @@
 
 @import "compass/reset",
 "lib/self-defined",
-"compass/css3/flexbox";
+"compass/css3/flexbox",
+"lib/logo";
 $theme-color:#ffd200;
 $hover-color:#692d31;
 $about-more-color:#f6bd4e;
 $tuhao-chart:#d7d7d7;
 $font-color:#212121;
+@font-face {
+    font-family: "Masaaki-Regular";
+    src: url(../fonts/Masaaki-Regular.otf);
+}
+
 $font: "Microsoft YaHei",
+"Masaaki-Regular",
 "Arial",
 "黑体",
 "宋体",
@@ -19,38 +28,113 @@ sans-serif,
 'select';
 html {
     font-size: 10px;
+    width: 100%;
+    height: 100%;
 }
 
 body {
     font-family: $font;
     width: 100%;
     height: 100%;
-    background: url(../img/bg.png) 0 0 repeat #2f3340;
     background-size: cover;
 }
 
-.i-index {
+.i-index,
+.l-loading {
     text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
+.i-index {
+    background: url(../img/index/bg.png) 0 0 repeat #2f3340;
+    padding-top: 10%;
+    box-sizing: border-box;
+    background-size: cover;
+    display: none;
+}
+
+.l-loading {
+    background-color: #ededed;
+}
+
+// 设置index 路由的样式
 .i-portrait {
     position: relative;
-    margin-top: 100px;
-    .i-figures {
+    .i-figure-frame {
+        position: relative;
         width: 312px;
         height: 229px;
         display: block;
         margin: 0 auto;
+        i {
+            display: inline-block;
+            position: absolute;
+        }
+        .logo-mayun {
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            transition: transform 1s;
+            transform: translate(-2000px, -388px);
+            &.now {
+                transform: translate(0, 0);
+            }
+        }
+        .logo-liuQD {
+            left: 59px;
+            bottom: 53px;
+            transition: transform 1s ease-in-out .7s;
+            transform: translate(0, -388px);
+            &.now {
+                transform: translate(0, 0);
+            }
+        }
+        .logo-liJC {
+            left: 106px;
+            bottom: 19px;
+            z-index: 3;
+            transition: transform 1s;
+            transform: translate(100px, -388px);
+            &.now {
+                transform: translate(0, 0);
+            }
+        }
+        .logo-Bill {
+            right: 68px;
+            top: 17px;
+            transition: transform 1s ease-in-out .7s;
+            transform: translate(0, -388px);
+            &.now {
+                transform: translate(0, 0);
+            }
+        }
+        .logo-wangSC {
+            bottom: 0;
+            right: 13px;
+            transition: transform 1s;
+            transform: translate(1000px, -388px);
+            &.now {
+                transform: translate(0, 0);
+            }
+        }
     }
     .i-words {
         position: absolute;
-        z-index: 2;
+        z-index: 5;
+        opacity: 0;
+        -webkit-transition: opacity 1s;
+        -o-transition: opacity 1s;
+        transition: opacity 1s;
         left: 0;
         right: 0;
         margin: 0 auto;
         bottom: -42px;
         width: 278px;
         height: 105px;
+        &.now {
+            opacity: 1;
+        }
     }
 }
 
@@ -69,17 +153,23 @@ body {
     font-size: 1.4rem;
     color: #474646;
     font-weight: bold;
-    background: #efe2ce url('../img/test-bg.png') no-repeat;
+    background: #efe2ce url('../img/index/test-bg.png') no-repeat;
     background-size: contain;
+    @media(max-height: 540px) {
+        margin-top: 66px;
+    }
 }
 
 .i-confirm {
     position: relative;
-    margin-top: 50px;
+    margin-top: 25px;
     text-align: center;
     width: 181px;
     height: 64px;
     display: inline-block;
+    @media(max-height: 540px) {
+        margin-top: 20px;
+    }
     .i-confirm-btn {
         position: absolute;
         width: 100%;
@@ -92,5 +182,232 @@ body {
     .i-relace-bg {
         width: 100%;
         height: 100%;
+    }
+}
+
+//设置加载页的页面
+.l-loading {
+    position: relative;
+}
+
+.l-title,
+.l-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+.l-title {
+    transform: translateY(-100%);
+    .l-money {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        animation: r-money 1s linear infinite;
+    }
+    .l-multi {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 5px;
+        color: #3e3838;
+    }
+    .l-twenty {
+        width: 61px;
+        height: 30px;
+        vertical-align: middle;
+        animation: shake-rotate 100ms ease-in-out infinite;
+        ;
+    }
+}
+
+.l-bar {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 200px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 4px solid #3e3838;
+    border-radius: 9px;
+    overflow: hidden;
+    background: url(../img/loading.png) 0 0 repeat-x;
+    .l-cover {
+        width: 100%;
+        height: 100%;
+        float: right;
+        background-color: #ededed;
+        border-radius: 7px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        -webkit-transition: width .5s;
+        -o-transition: width .5s;
+        transition: width .5s;
+    }
+}
+
+@keyframes r-money {
+    //旋转钱币
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes shake-rotate {
+    2% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    4% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    6% {
+        transform: translate(0, 0) rotate(5.5deg);
+    }
+    8% {
+        transform: translate(0, 0) rotate(3.5deg);
+    }
+    10% {
+        transform: translate(0, 0) rotate(7.5deg);
+    }
+    12% {
+        transform: translate(0, 0) rotate(1.5deg);
+    }
+    14% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    16% {
+        transform: translate(0, 0) rotate(-1.5deg);
+    }
+    18% {
+        transform: translate(0, 0) rotate(2.5deg);
+    }
+    20% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    22% {
+        transform: translate(0, 0) rotate(-3.5deg);
+    }
+    24% {
+        transform: translate(0, 0) rotate(-4.5deg);
+    }
+    26% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    28% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    30% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    32% {
+        transform: translate(0, 0) rotate(5.5deg);
+    }
+    34% {
+        transform: translate(0, 0) rotate(-3.5deg);
+    }
+    36% {
+        transform: translate(0, 0) rotate(-1.5deg);
+    }
+    38% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    40% {
+        transform: translate(0, 0) rotate(6.5deg);
+    }
+    42% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    44% {
+        transform: translate(0, 0) rotate(-1.5deg);
+    }
+    46% {
+        transform: translate(0, 0) rotate(-6.5deg);
+    }
+    48% {
+        transform: translate(0, 0) rotate(1.5deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    52% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    54% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    56% {
+        transform: translate(0, 0) rotate(3.5deg);
+    }
+    58% {
+        transform: translate(0, 0) rotate(0.5deg);
+    }
+    60% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    62% {
+        transform: translate(0, 0) rotate(-5.5deg);
+    }
+    64% {
+        transform: translate(0, 0) rotate(4.5deg);
+    }
+    66% {
+        transform: translate(0, 0) rotate(-4.5deg);
+    }
+    68% {
+        transform: translate(0, 0) rotate(7.5deg);
+    }
+    70% {
+        transform: translate(0, 0) rotate(7.5deg);
+    }
+    72% {
+        transform: translate(0, 0) rotate(1.5deg);
+    }
+    74% {
+        transform: translate(0, 0) rotate(0.5deg);
+    }
+    76% {
+        transform: translate(0, 0) rotate(6.5deg);
+    }
+    78% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    80% {
+        transform: translate(0, 0) rotate(-3.5deg);
+    }
+    82% {
+        transform: translate(0, 0) rotate(-1.5deg);
+    }
+    84% {
+        transform: translate(0, 0) rotate(-1.5deg);
+    }
+    86% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    88% {
+        transform: translate(0, 0) rotate(1.5deg);
+    }
+    90% {
+        transform: translate(0, 0) rotate(-0.5deg);
+    }
+    92% {
+        transform: translate(0, 0) rotate(7.5deg);
+    }
+    94% {
+        transform: translate(0, 0) rotate(-6.5deg);
+    }
+    96% {
+        transform: translate(0, 0) rotate(-2.5deg);
+    }
+    98% {
+        transform: translate(0, 0) rotate(7.5deg);
+    }
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0);
     }
 }
