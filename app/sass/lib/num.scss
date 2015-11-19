@@ -1,0 +1,6 @@
+$num-sprite-dimensions: true;
+$num-layout:vertical;
+$num-spacing: 20px;
+@import "compass/utilities/sprites";
+@import "index/num/*.png";
+@include all-num-sprites();

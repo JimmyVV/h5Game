@@ -1,0 +1,6 @@
+$words-sprite-dimensions: true;
+$words-layout:vertical;
+$words-spacing: 8px;
+@import "compass/utilities/sprites";
+@import "index/words/*.png";
+@include all-words-sprites();

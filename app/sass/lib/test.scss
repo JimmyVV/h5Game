@@ -1,0 +1,6 @@
+$test-sprite-dimensions: true;
+$test-layout:vertical;
+$test-spacing: 8px;
+@import "compass/utilities/sprites";
+@import "test/test/*.png";
+@include all-test-sprites();
