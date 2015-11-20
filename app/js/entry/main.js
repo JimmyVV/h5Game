@@ -11,9 +11,10 @@ require.config({　　
         'focus': "../entry/modules/input-focus",
         'deferred': 'deferred',
         'touch': 'touch',
-        'event': 'event',
+        'event':"event",
         'callbacks': 'callbacks',
-        'utils': "../entry/modules/utils"
+        'utils': "../entry/modules/utils",
+        'textFormat':"../entry/modules/textFormat"
     },
     map: {
         '*': {
@@ -38,11 +39,11 @@ require.config({　　
             exports: '$',
             deps: ['zepto']
         },
-        'touch': {
+        "event":{
             exports: '$',
             deps: ['zepto']
         },
-        'event': {
+        'touch': {
             exports: '$',
             deps: ['zepto']
         },
@@ -52,7 +53,7 @@ require.config({　　
         }
     }
 });
-require(['underscore', 'zepto', 'backbone', 'async', 'focus', 'event', 'deferred', 'callbacks', 'touch', 'utils'], function(_, $, Backbone, async) {　　
+require(['underscore', 'zepto', 'backbone', 'async', 'focus','event', 'deferred', 'callbacks', 'touch', 'utils','textFormat'], function(_, $, Backbone, async) {　　
     Pathurl = {
         getTyrant: '/getTyrant'
     };　
@@ -372,16 +373,16 @@ require(['underscore', 'zepto', 'backbone', 'async', 'focus', 'event', 'deferred
         el: $('.r-result'),
         first: $('.r-first,g.r-first'),
         first_text: $('.r-first-text').find('span'),
-        first_img: $('.r-first-text').find('img'),
+        first_img: $('.r-first').find('.figure'),
         second: $('.r-second,g.r-second'),
         second_text: $('.r-second-text').find('span'),
-        second_img: $('.r-second-text').find('img'),
+        second_img: $('.r-second').find('figure'),
         third: $('.r-third,g.r-third'),
         third_text: $('.r-third-text').find('span'),
-        third_img: $('.r-third-text').find('img'),
+        third_img: $('.r-third').find('figure'),
         fourth: $('.r-fourth,g.r-fourth'),
         fourth_text: $('.r-fourth-text').find('span'),
-        fourth_img: $('.r-fourth-text').find('img'),
+        fourth_img: $('.r-fourth').find('figure'),
         result_name:$('#r-name'),
         events: {
             'tap #r-again-btn': 'backIndex'
@@ -467,7 +468,9 @@ require(['underscore', 'zepto', 'backbone', 'async', 'focus', 'event', 'deferred
                     $ele = _this.fourth;
                     break;
             }
-            text.text(tyrant.scripts);                 
+            console.info(tyrant.scripts+ order);
+            console.log(new textFormat(tyrant.scripts,order).content)
+            text.html(new textFormat(tyrant.scripts,order).content);    //处理输入的Content
             img.attr('src', tyrant.src);
 
             setTimeout(function() {

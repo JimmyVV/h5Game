@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     postcss = require('gulp-postcss'),
     autoprefix = require('autoprefixer'),
-    flexpost  = require('postcss-flexboxfixer');
+    flexpost  = require('postcss-flexboxfixer'),
+    rename = require('gulp-rename');
 
 gulp.task('minify', function() {
     gulp.src('js/app.js')
@@ -42,7 +43,8 @@ gulp.task('sync', function() {
 gulp.task('copy', function() {
     gulp.src('app/js/**/*.js')
         .pipe(gulp.dest('../h5Games/js'));
-    gulp.src('app/**/*.html')
+    gulp.src('app/index.html')
+        .pipe(rename("index.ejs"))
         .pipe(gulp.dest('../h5Games/views'));
     gulp.src('app/styles/**/*.css')
         .pipe(gulp.dest('../h5Games/styles'));

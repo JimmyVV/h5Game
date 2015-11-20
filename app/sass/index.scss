@@ -601,6 +601,9 @@ body {
         &.now {
             opacity: 1;
         }
+        img {
+            position: absolute;
+        }
     }
     p {
         position: absolute;
@@ -615,29 +618,28 @@ body {
         word-break: break-all;
         line-height: 1.1rem;
         &.r-first-text {
-            left: 20px;
-            top: 39px;
-            transform: rotateZ(-24deg);
+            left: 40px;
+            top: 57px;
+            transform: rotateZ(-16deg);
             span {
                 position: relative;
                 z-index: 2;
                 display: block;
-                background-color: #e0cea1;
                 overflow: hidden;
             }
             img {
                 left: 7px;
                 top: -87px;
+                z-index: 0;
             }
         }
         &.r-second-text {
             right: 37px;
-            top: 29px;
+                top: 63px;  
             span {
                 position: relative;
                 z-index: 2;
                 display: inline-block;
-                background-color: #e0cea1;
                 overflow: hidden;
             }
             img {
@@ -647,17 +649,18 @@ body {
             }
         }
         &.r-third-text {
-            bottom: 41px;
-            left: 32px;
+            bottom: 58px;
+            left: 45px;
+            transform:rotateZ(29deg);
             img {
                 top: -102px;
                 left: 2px;
             }
         }
         &.r-fourth-text {
-            right: 40px;
-            bottom: 41px;
-            transform: rotateZ(8deg);
+            right: 73px;
+            bottom: 78px;
+            transform: rotateZ(11deg);
             img {
                 left: 10px;
                 top: -102px;
@@ -678,7 +681,7 @@ body {
             z-index: 3;
             animation: r-star 3s linear infinite;
             &.first {
-                left: -3px;
+                left: -11px;
                 top: 26px;
             }
             &.second {
@@ -690,8 +693,8 @@ body {
                 top: 27px;
             }
             &.fourth {
-                left: 1px;
-                top: 40px;
+                left: -5px;
+                top: 38px;
                 z-index: 1;
             }
         }
@@ -701,17 +704,73 @@ body {
         content: '';
         clear: both;
     }
-    svg {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        .r-star {
-            animation: r-star 5s ease-in-out infinite;
+   
+    .r-first {
+        .figure {
+            position: absolute;
+            width: 81px;
+            left: 38px;
+            top: -25px;
+            transform: rotateZ(-16deg);
+        }
+        .r-board {
+            width: 160px;
+            z-index: 2;
+            left: 17px;
+            top: 39px;
+
+        }
+    }
+    .r-second{
+         .figure {
+            position: absolute;
+            width: 81px;
+            right: 38px;
+            top: -25px;
+            transform: rotateZ(16deg);
+        }
+        .r-board {
+           width: 156px;
+           z-index: 2;
+           right: 35px;
+           top: 37px;
+        }
+    }
+    .r-third{
+         .figure {
+            position: absolute;
+            width:78px;
+            left: 26px;
+            bottom: 99px;
+            transform: rotateZ(-16deg);
+            z-index: 2;
+        }
+        .r-board {
+            width: 165px;
+                z-index: 2;
+           left: 24px;
+               bottom: 33px;
+        }
+    }
+    .r-fourth {
+        .figure {
+            position: absolute;
+            width:78px;
+            right: 13px;
+            bottom: 65px;
+            transform: rotateZ(16deg);
+            z-index: 3;
+        }
+        .r-board {
+            width: 138px;
+                z-index: 2;
+                right: 64px;
+                bottom: 53px;
         }
     }
     .r-name-frame {
         position: relative;
-        top: 40%;        
+        top: 40%;
         text-align: center;
         &::after {
             display: block;
@@ -724,16 +783,21 @@ body {
             animation-name: zoomInDown;
             animation-iteration-count: 1;
             animation-duration: 1s;
-            vertical-align: middle; 
+            vertical-align: text-top;
         }
     }
     .r-name {
-        font-size: 3.33rem;
-        color: #e2902a;
-        display: inline-block;
-        font-weight: bold;
-        transform: skewX(-12deg);
-        text-shadow: 1px 1px 12px rgba(232, 227, 232, 0.8), 2px 2px rgba(232, 227, 232, 0.8), 3px 3px 2px rgba(232, 227, 232, 0.8), 4px 4px 2px rgba(232, 227, 232, 0.8), 5px 5px 2px rgba(232, 227, 232, 0.8), 6px 6px 3px rgba(232, 227, 232, 0.8), 7px 7px 3px rgba(232, 227, 232, 0.8), 8px 6px 3px rgba(232, 227, 232, 0.8), 9px 6px 3px rgba(232, 227, 232, 0.8), 10px 6px 3px rgba(232, 227, 232, 0.8), 6px 6px 3px rgba(232, 227, 232, 0.8), 0 8px 2px rgba(87, 69, 87, 0.8);
+       font-size: 3.33rem;
+       color: #e2902a;
+       display: inline-block;
+       position: relative;
+       z-index: 33;
+       top: 15px;
+       margin-left: 32px;
+       font-weight: bold;
+       transform: skewX(-12deg);
+       background-color: #fff;
+       border-radius: 3px;
     }
 }
 
