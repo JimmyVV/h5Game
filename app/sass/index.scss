@@ -619,6 +619,10 @@ body {
     text-align: center;
     width: 375px;
     height: 400px;
+    @media (max-width: 350px) {
+        margin-left: -34px;
+        transform: scale(0.85);
+    }
     .r-first,
     .r-second,
     .r-third,
