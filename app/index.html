@@ -7,14 +7,42 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <title>Tuhao</title>
-    <link href="/styles/index.css" rel="stylesheet" type="text/css" />
+    <meta name="keyword" name="壕做友">
+    <meta name="decription" content="土豪网,我与土豪的有个约会. 找到心中的土豪">
+    <title>壕做友</title>
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico" sizes="57x57">
+    <link href="./styles/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+    Redict('/redict');
+    function Redict(url){
+            if(!checkBroswer()){
+            window.location.href=url;  //不是移动端
+            }
+        }
+        function checkBroswer(){
+            var sUserAgent = navigator.userAgent.toLowerCase();
+             bIsIpad = sUserAgent.match(/ipad/i) == "ipad",
+             bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os",
+             bIsMidp = sUserAgent.match(/midp/i) == "midp",
+             bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4",
+             bIsUc = sUserAgent.match(/ucweb/i) == "ucweb",
+             bIsAndroid = sUserAgent.match(/android/i) == "android",
+             bIsCE = sUserAgent.match(/windows ce/i) == "windows ce",
+             bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile",
+             bIsMobile = !!sUserAgent.match(/applewebkit.*mobile.*/); //是否为移动终
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsMobile) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </head>
-<script type="text/template" id="index-template">
-</script>
+
 
 <body class="i-index-show">
-     <article class="l-loading">
+    <article class="l-loading">
         <section class="l-title">
             <img class="l-money" src="img/coin.png" alt="money">
             <span class="l-multi">x</span>
@@ -26,7 +54,7 @@
             <div class="l-cover"></div>
         </section>
     </article>
-      <article class="i-index">
+    <article class="i-index">
         <header class="i-portrait">
             <div class="i-figure-frame">
                 <img src="img/index/logo/mayun.png" alt="typrant" name="mayun" class="logo-mayun">
@@ -39,10 +67,10 @@
                 <img src="img/index/logo/building3.png" class="logo-building3" alt="building">
             </div>
             <div alt="tyrant" class="i-words">
-                <i class="words-right"></i>
-                <i class="words-word"></i>
-                <i class="words-left"></i>
-                <i class="words-rich"></i>
+                <img src="./img/index/words/right-arrow.png" class="words-right">
+                <img src="./img/index/words/hao.png" class="words-word">
+                <img src="./img/index/words/left-arrow.png" class="words-left">
+                <img src="./img/index/words/rich-man.png" class="words-rich">
             </div>
         </header>
         <input class="i-testname" id="i-testname" type="text" name="name" value="输入测试姓名">
@@ -54,10 +82,12 @@
         <img class="author" src="./img/author.png" />
     </article>
     <article class="t-test" id="t-test">
-        <div class="t-transition" id="t-transition">
-            <div><i class="t-first-row test-first" id="test-first"></i></div>
-            <div><i class="t-second-row test-second" id="test-second"></i></div>
-            <span class="t-message" id="t-message">双方互为好友，现在可以开始聊天了.</span>
+        <div class="t-layer">
+            <div class="t-transition" id="t-transition">
+                <div><i class="t-first-row test-first" id="test-first"></i></div>
+                <div><i class="t-second-row test-second" id="test-second"></i></div>
+                <span class="t-message" id="t-message">双方互为好友，现在可以开始聊天了.</span>
+            </div>
         </div>
         <section class="t-board">
             <header class="t-header">
@@ -67,23 +97,23 @@
                 <div class="t-topic">
                     <div class="t-portrait">
                         <img src="img/index/decor.png" class="logo-decor">
-                        <div class="t-frame"><img src="img/index/mayun.png" class="t-figure" id="t-figure" /></div>
+                        <div class="t-frame"><img src="" class="t-figure" id="t-figure" /></div>
                     </div>
-                    <header class="t-title" id="t-title">马云透露优酷背后的得力助手</header>
+                    <header class="t-title" id="t-title"></header>
                 </div>
                 <div class="t-content">
-                    <strong class="t-title" id="t-name">曹YV</strong>
-                    <p class="t-scripts" id="t-scripts">借给正在上厕所的
-                        <br/> 马云
-                        <br/> 一卷卫生纸
-                        <br/> 让他及时脱身
-                        <br/> 成功赶上收购会议 </p>
+                    <strong class="t-title" id="t-name"></strong>
+                    <p class="t-scripts" id="t-scripts">
+                    </p>
                 </div>
                 <div class="t-money">
                     <i alt="star" class="t-star1 test-star1"></i>
                     <i alt="money" class="t-bucket test-money"></i>
                     <i alt="star" class="t-star2 test-star2"></i>
                 </div>
+                <audio id="loading">
+                    <source src="musics/music.mp3" type="audio/mpeg" />
+                </audio>
             </article>
         </section>
         <br/>
@@ -96,47 +126,33 @@
     </article>
     <article class="r-result">
         <article class="r-show">
-            <p class="r-first r-first-text"><span>你给正在上厕所的
-            <br/>马云，一
-                <br/>哈哈哈哈哈
-                <br/>哈哈，哈哈
-                <br/>哈哈哈哈哈哈哈飞</span>
+            <p class="r-first r-first-text"><span></span>
                 <i class="test-five-star first"></i></p>
-            <p class="r-second r-second-text"><span>哈哈哈哈哈哈<br/>哈哈哈哈
-                <br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈哈哈哈哈哈哈</span>
+            <p class="r-second r-second-text"><span></span>
                 <i class="test-five-star second"></i></p>
-            <p class="r-third r-third-text"><span>哈哈哈哈
-                <br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈哈
-                <br/>哈哈哈哈哈哈
-                <br/>哈哈哈哈哈哈哈</span>
+            <p class="r-third r-third-text"><span></span>
                 <i class="test-five-star third"></i></p>
-            <p class="r-fourth r-fourth-text"><span>哈哈哈哈哈哈哈<br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈
-                <br/>哈哈哈哈哈哈哈</span>
+            <p class="r-fourth r-fourth-text"><span></span>
                 <i class="test-five-star fourth"></i></p>
             <div class="r-first">
-                <img class="figure" src="img/test/Bill.png" />
+                <img class="figure" src="" />
                 <img src="img/test/board1.png" alt="" class="r-board">
             </div>
             <div class="r-second">
-                <img src="img/test/liJC.png" class="figure">
+                <img src="" class="figure">
                 <img src="img/test/board2.png" class="r-board">
             </div>
             <div class="r-third">
-                <img src="img/test/liJC.png" class="figure">
+                <img src="" class="figure">
                 <img src="img/test/board3.png" class="r-board">
             </div>
             <div class="r-fourth">
-                <img src="img/test/liJC.png" class="figure">
+                <img src="" class="figure">
                 <img src="img/test/board4.png" class="r-board">
             </div>
             <div class="r-name-frame">
                 <span class="r-name" id="r-name">蘑菇菇</span>
-                <i class="test-tyrant"></i>
+                <img src="/img/money.png" class="test-tyrant">
             </div>
         </article>
         <div class="r-again">
@@ -147,6 +163,8 @@
         <img class="author" src="img/author.png" />
     </article>
     <script type="text/javascript" src="js/lib/require.js" data-main="js/entry/main"></script>
+
+    <script src="http://s4.cnzz.com/stat.php?id=1256816088&web_id=1256816088" language="JavaScript"></script>
 </body>
 
 </html>
