@@ -49,7 +49,14 @@ body {
         overflow: auto;
     }
 }
+.share{
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   z-index: -1;
+   opacity: 0;
 
+}
 .i-index,
 .l-loading,
 .t-test,
@@ -581,19 +588,23 @@ body {
     }
     $t-last:.5s;
     $t-dura:.5s;
-    i {
+    img {
         display: inline-block;
         opacity: 0;
         &.now {
             opacity: 1;
         }
-        &.test-first {
+        &.t-first-row {
             float: left;
             transition: opacity $t-last ease-in-out $t-dura;
+            width:179px;
+            height: 37px;
         }
-        &.test-second {
+        &.t-second-row {
             float: right;
             transition: opacity $t-last ease-in-out 2*$t-dura;
+            width:200px;
+            height: 36px;
         }
     }
     .t-message {
@@ -662,6 +673,7 @@ body {
             span {
                 z-index: 2;
                 overflow: hidden;
+                height: 70px;
             }
             img {
                 left: 7px;
@@ -675,6 +687,7 @@ body {
             span {
                 z-index: 2;
                 overflow: hidden;
+                height: 90px;
             }
             img {
                 left: 15px;

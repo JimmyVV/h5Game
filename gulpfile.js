@@ -8,9 +8,9 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 
 gulp.task('minify', function() {
-    gulp.src('js/app.js')
+    gulp.src('app/js/main.js')
         .pipe(uglify())
-        .pipe(gulp.dest('build'))
+        .pipe(gulp.dest('app/'))
 });
 gulp.task('prefix', function() {
     var processors = [ //这里就是中间件
